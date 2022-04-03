@@ -165,6 +165,10 @@
     margin-top: 10px;
   }
 
+  #attempts-list span {
+    font-weight: bold;
+  }
+
   #secret-number-container {
     display: flex;
     flex-direction: column;
