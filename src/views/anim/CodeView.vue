@@ -84,23 +84,30 @@
       }
     }
     console.log(checks)
-
-    // Boucle qui va traiter les nombres qui valent null : vérifier si le nombre est à un autre emplacement dans le nombre mystère.
+    let remainingNumbers = []
+    // Boucle qui va traiter les nombres qui valent null et refais un tableau avec les valeurs du chiffre mystère des emplacements null de la combinaison proposée.
     for(let x=0; x < points.length; x++) {
-      if(points[x] === null) {
-        if(tab[x] in checks) {
-          console.log(tab[x])
-          checks[tab[x]] = 1
+      if(points[x] === null || points[x] === 0) {
+        remainingNumbers.push(secret.value[x])
+      }
+    }
+
+    for(let y=0; y < points.length; y++) {
+      if(points[y] === null) {
+        if(!(tab[y] in checks) && remainingNumbers.includes(Number(tab[y]))) {
+          points[y] = 1
+          checks[tab[y]]++
+        } else {
+          points[y] = 0
+          tab[y] in checks ? checks[tab[y]]++ : checks[tab[y]] = 1
         }
       }
     }
-    // if(tab[i] in checks && tab[i] in numbersInSecret.value && checks[Number(tab[i])] < numbersInSecret.value[Number(tab[i])]) {
-    //   // test de vérification si le chiffre est dans les objets checks ou numbersInSecret
-    //   // Et si le nombre de ce chiffre est plus petit que le nombre de fois où il se trouve dans la combinaison
-    //   // Ex : j'ai 12131 en proposition et un chiffre mystère 12341, au passage du 2e 1 de la proposition, la vérification sera vrai
-    //   // Car il y a un 2e 1 dans le chiffre mystère et au passage du 3e 1, la vérification est fausse car il y a que 2x 1 dans le chiffre mystère
-    //   points[i] = 1
-    // } else {
+      // test de vérification si le chiffre est dans les objets checks ou numbersInSecret
+      // Et si le nombre de ce chiffre est plus petit que le nombre de fois où il se trouve dans la combinaison
+      // Ex : j'ai 12131 en proposition et un chiffre mystère 12341, au passage du 2e 1 de la proposition, la vérification sera vrai
+      // Car il y a un 2e 1 dans le chiffre mystère et au passage du 3e 1, la vérification est fausse car il y a que 2x 1 dans le chiffre mystère
+
     console.log(points)
     let score = points.reduce(sum)
     return [attempt, score]
