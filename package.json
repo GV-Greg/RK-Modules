@@ -1,13 +1,16 @@
 {
   "name": "rk-modules",
   "version": "0.0.1",
+  "homepage": "https://gv-greg.github.io/RK-Modules/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 5050",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "deploy": "vite build && gh-pages -d build"
   },
   "dependencies": {
+    "gh-pages": "^3.2.3",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14",
     "vue-sweetalert2": "^5.0.2"
