@@ -1,0 +1,1 @@
+import{_ as e,o,c as s}from"./index.c71157c1.js";const t={},c={class:"module"};function r(n,a){return o(),s("div",c,' Animation "Joutes \xE9questres" ')}var i=e(t,[["render",r]]);export{i as default};
