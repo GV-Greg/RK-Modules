@@ -6,7 +6,7 @@
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">Accueil</RouterLink>
         <RouterLink to="/anim">Animation</RouterLink>
         <RouterLink to="/eco">Economie</RouterLink>
         <RouterLink to="/secu">S&eacute;curit&eacute;</RouterLink>
